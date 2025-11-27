@@ -9,11 +9,24 @@ console.log("Found columns:", todoColumn, inProgressColumn, doneColumn);
 const BASE_URL = "https://fwpznxhkrtlglmuqrgwa.supabase.co/functions/v1/app";
 const SANDBOX_ID = "maria-dev";
 
+const todoForm = document.getElementById("todo-form");
+const todoTitleInput = document.getElementById("todo-title-input");
+
 const addInProgressBtn = document.getElementById("add-inprogress-btn");
 const addDoneBtn = document.getElementById("add-done-btn");
-const addTodoBtn = document.getElementById("add-todo-btn");
 
-addTodoBtn.addEventListener("click", createTaskInTodo);
+todoForm.addEventListener("submit", function (event) 
+{
+  event.preventDefault(); 
+
+  const title = todoTitleInput.value.trim();
+  if (!title) return;
+
+  createTaskInTodo(title);
+  todoTitleInput.value = "";
+});
+
+
 addInProgressBtn.addEventListener("click", createTaskInInProgress);
 addDoneBtn.addEventListener("click", createTaskInDone);
 
@@ -91,11 +104,9 @@ function renderBoard(board)
   });
 }
 
-async function createTaskInTodo() 
+async function createTaskInTodo(title) 
 {
-  const listId = "3aa2a9d3-2196-41a5-a944-714bc7d0a6f3"; // To Do list ID
-
-  const title = prompt("Enter task title:");
+  const listId = "3aa2a9d3-2196-41a5-a944-714bc7d0a6f3"; 
   if (!title) return;
 
   try {
@@ -117,19 +128,20 @@ async function createTaskInTodo()
       return;
     }
 
-    console.log("Task created!");
+    console.log("Task created in To Do!");
 
     loadBoards();
 
   } catch (error) 
   {
-    console.error("Error creating task:", error);
+    console.error("Error creating task in To Do:", error);
   }
 }
 
+
 async function createTaskInInProgress() 
 {
-  const listId = "c88e808a-666d-4362-ae56-e3b80b401927"; // In Progress list ID
+  const listId = "c88e808a-666d-4362-ae56-e3b80b401927"; 
 
   const title = prompt("Enter task title:");
   if (!title) return;
@@ -164,7 +176,7 @@ async function createTaskInInProgress()
 
 async function createTaskInDone() 
 {
-  const listId = "44a9ee33-61a5-4349-80e5-d5caf82d79f1"; // Done list ID
+  const listId = "44a9ee33-61a5-4349-80e5-d5caf82d79f1"; 
 
   const title = prompt("Enter task title:");
   if (!title) return;
