@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #ddd;
+  background-color: #f3f3f3;
+}
+
+.board-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.list-column {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 250px;
+  border-radius: 10px;
+}
+
+.list-column h2 {
+  margin-top: 0;
+  font-size: 20px;
+  text-align: center;
+}
+
+.tasks {
+  margin-top: 10px;
+  min-height: 50px;
+}
