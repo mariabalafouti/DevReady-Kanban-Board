@@ -1,54 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #246b7b;            
+  color: #222;
 }
 
 header {
   text-align: center;
-  padding: 20px;
-  background-color: #f3f3f3;
-  border-bottom: 1px solid #ddd;
+  padding: 24px 0 16px;
 }
 
 header h1 {
   margin: 0;
+  font-size: 40px;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 main {
-  padding: 20px;
+  padding: 0 16px 40px;
+}
+
+.board-container {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.list-column {
+  background: #f5f5f5;
+  border-radius: 16px;
+  min-width: 260px;
+  max-width: 320px;
+  padding-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.list-column h2 {
+  margin: 0;
+  padding: 10px 16px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 16px 16px 0 0;
+}
+
+#todo-column h2 {
+  background: #ffe58f;  
+}
+
+#inprogress-column h2 {
+  background: #b7eb8f;  
+}
+
+#done-column h2 {
+  background: #91d5ff;  
+}
+
+.list-column form {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px 0;
+}
+
+.list-column input[type="text"] {
+  flex: 1;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.list-column button {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  background: #1677ff;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.list-column button:hover {
+  opacity: 0.9;
+}
+
+.tasks {
+  padding: 10px 12px 4px;
+}
+
+.tasks p {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin: 0 0 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
 }
 
 footer {
   text-align: center;
   padding: 15px;
   font-size: 14px;
-  color: #555;
-  border-top: 1px solid #ddd;
-  background-color: #f3f3f3;
-}
-
-.board-container {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
-}
-
-.list-column {
-  background: #f8f8f8;
-  border: 1px solid #ddd;
-  padding: 15px;
-  width: 250px;
-  border-radius: 10px;
-}
-
-.list-column h2 {
-  margin-top: 0;
-  font-size: 20px;
-  text-align: center;
-}
-
-.tasks {
-  margin-top: 10px;
-  min-height: 50px;
+  color: #f5f5f5;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
 }

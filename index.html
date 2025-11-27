@@ -46,17 +46,23 @@
 
     <div class="list-column" id="done-column">
       <h2>Done</h2>
-      <button id="add-done-btn">Add Task</button>
+
+        <form id="done-form">
+            <input 
+            id="done-title-input" 
+            type="text" 
+            placeholder="New task title..." 
+            />
+            <button type="submit">Add</button>
+        </form>
+
       <div class="tasks"></div>
     </div>
 
   </div>
 </main>
 
-  <footer>
-    <p>Maria Balafouti</p>
-  </footer>
-
   <script src="script.js"></script>
+  
 </body>
 </html>

@@ -4,8 +4,6 @@ const todoColumn = document.getElementById("todo-column");
 const inProgressColumn = document.getElementById("inprogress-column");
 const doneColumn = document.getElementById("done-column");
 
-console.log("Found columns:", todoColumn, inProgressColumn, doneColumn);
-
 const BASE_URL = "https://fwpznxhkrtlglmuqrgwa.supabase.co/functions/v1/app";
 const SANDBOX_ID = "maria-dev";
 
@@ -15,6 +13,8 @@ const todoTitleInput = document.getElementById("todo-title-input");
 const inprogressForm = document.getElementById("inprogress-form");
 const inprogressTitleInput = document.getElementById("inprogress-title-input");
 
+const doneForm = document.getElementById("done-form");
+const doneTitleInput = document.getElementById("done-title-input");
 
 todoForm.addEventListener("submit", function (event) 
 {
@@ -38,8 +38,16 @@ inprogressForm.addEventListener("submit", function (event)
   inprogressTitleInput.value = "";
 });
 
-const addDoneBtn = document.getElementById("add-done-btn");
-addDoneBtn.addEventListener("click", createTaskInDone);
+doneForm.addEventListener("submit", function (event) 
+{
+  event.preventDefault();
+
+  const title = doneTitleInput.value.trim();
+  if (!title) return;
+
+  createTaskInDone(title);
+  doneTitleInput.value = "";
+});
 
 
 async function loadBoards() 
@@ -183,12 +191,10 @@ async function createTaskInInProgress(title)
   }
 }
 
-
-async function createTaskInDone() 
+async function createTaskInDone(title) 
 {
-  const listId = "44a9ee33-61a5-4349-80e5-d5caf82d79f1"; 
+  const listId = "44a9ee33-61a5-4349-80e5-d5caf82d79f1"; // Done list ID
 
-  const title = prompt("Enter task title:");
   if (!title) return;
 
   try {
@@ -206,7 +212,7 @@ async function createTaskInDone()
 
     if (!response.ok) 
     {
-      console.error("Failed to create task. Status:", response.status);
+      console.error("Failed to create task in Done. Status:", response.status);
       return;
     }
 
