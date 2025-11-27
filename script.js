@@ -28,8 +28,13 @@ async function loadBoards()
     }
 
     const boards = await response.json();
+
     console.log("Boards from API:", boards);
     renderBoard(boards[0]);
+
+    boards[0].lists.forEach(list => {
+        console.log("List:", list.name, "ID:", list.id);
+    });
 
   } catch (error) 
   {
