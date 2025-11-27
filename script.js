@@ -29,6 +29,7 @@ async function loadBoards()
 
     const boards = await response.json();
     console.log("Boards from API:", boards);
+    renderBoard(boards[0]);
 
   } catch (error) 
   {
@@ -37,3 +38,41 @@ async function loadBoards()
 }
 
 loadBoards();
+
+function renderBoard(board) 
+{
+  const todoTasks = document.querySelector("#todo-column .tasks");
+  const inProgressTasks = document.querySelector("#inprogress-column .tasks");
+  const doneTasks = document.querySelector("#done-column .tasks");
+
+  todoTasks.innerHTML = "";
+  inProgressTasks.innerHTML = "";
+  doneTasks.innerHTML = "";
+
+  board.lists.forEach(list => 
+  {
+    if (list.name === "To Do") 
+    {
+      list.tasks.forEach(task => 
+      {
+        todoTasks.innerHTML += `<p>${task.title}</p>`;
+      });
+    }
+
+    if (list.name === "In Progress") 
+    {
+      list.tasks.forEach(task => 
+      {
+        inProgressTasks.innerHTML += `<p>${task.title}</p>`;
+      });
+    }
+
+    if (list.name === "Done") 
+    {
+      list.tasks.forEach(task => 
+      {
+        doneTasks.innerHTML += `<p>${task.title}</p>`;
+      });
+    }
+  });
+}
