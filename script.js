@@ -1,3 +1,11 @@
+console.log("Script loaded");
+
+const todoColumn = document.getElementById("todo-column");
+const inProgressColumn = document.getElementById("inprogress-column");
+const doneColumn = document.getElementById("done-column");
+
+console.log("Found columns:", todoColumn, inProgressColumn, doneColumn);
+
 const BASE_URL = "https://fwpznxhkrtlglmuqrgwa.supabase.co/functions/v1/app";
 const SANDBOX_ID = "maria-dev";
 
