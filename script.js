@@ -12,8 +12,9 @@ const SANDBOX_ID = "maria-dev";
 const todoForm = document.getElementById("todo-form");
 const todoTitleInput = document.getElementById("todo-title-input");
 
-const addInProgressBtn = document.getElementById("add-inprogress-btn");
-const addDoneBtn = document.getElementById("add-done-btn");
+const inprogressForm = document.getElementById("inprogress-form");
+const inprogressTitleInput = document.getElementById("inprogress-title-input");
+
 
 todoForm.addEventListener("submit", function (event) 
 {
@@ -26,8 +27,18 @@ todoForm.addEventListener("submit", function (event)
   todoTitleInput.value = "";
 });
 
+inprogressForm.addEventListener("submit", function (event) 
+{
+  event.preventDefault();
 
-addInProgressBtn.addEventListener("click", createTaskInInProgress);
+  const title = inprogressTitleInput.value.trim();
+  if (!title) return;
+
+  createTaskInInProgress(title);
+  inprogressTitleInput.value = "";
+});
+
+const addDoneBtn = document.getElementById("add-done-btn");
 addDoneBtn.addEventListener("click", createTaskInDone);
 
 
@@ -139,11 +150,9 @@ async function createTaskInTodo(title)
 }
 
 
-async function createTaskInInProgress() 
+async function createTaskInInProgress(title) 
 {
   const listId = "c88e808a-666d-4362-ae56-e3b80b401927"; 
-
-  const title = prompt("Enter task title:");
   if (!title) return;
 
   try {
@@ -161,7 +170,7 @@ async function createTaskInInProgress()
 
     if (!response.ok) 
     {
-      console.error("Failed to create task. Status:", response.status);
+      console.error("Failed to create task in In Progress. Status:", response.status);
       return;
     }
 
@@ -173,6 +182,7 @@ async function createTaskInInProgress()
     console.error("Error creating task in In Progress:", error);
   }
 }
+
 
 async function createTaskInDone() 
 {

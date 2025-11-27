@@ -12,42 +12,46 @@
   </header>
 
   <main>
-    <div id="board-container" class="board-container">
+  <div id="board-container" class="board-container">
 
-      <div class="list-column" id="todo-column">
-        <h2>To Do</h2>
-        <form id="todo-form">
-            <input 
-            id="todo-title-input" 
-            type="text" 
-            placeholder="New task title..." 
-            />
-            <button type="submit">Add</button>
-        </form>
-        
-        <div class="tasks">
+    <div class="list-column" id="todo-column">
+      <h2>To Do</h2>
 
-        </div>
-      </div>
+      <form id="todo-form">
+        <input 
+          id="todo-title-input" 
+          type="text" 
+          placeholder="New task title..." 
+        />
+        <button type="submit">Add</button>
+      </form>
 
-      <div class="list-column" id="inprogress-column">
-        <h2>In Progress</h2>
-        <button id="add-inprogress-btn">Add Task</button>
-        <div class="tasks">
-
-        </div>
-      </div>
-
-      <div class="list-column" id="done-column">
-        <h2>Done</h2>
-        <button id="add-done-btn">Add Task</button>
-        <div class="tasks">
-
-        </div>
-      </div>
-
+      <div class="tasks"></div>
     </div>
-  </main>
+
+    <div class="list-column" id="inprogress-column">
+      <h2>In Progress</h2>
+
+      <form id="inprogress-form">
+        <input 
+          id="inprogress-title-input" 
+          type="text" 
+          placeholder="New task title..." 
+        />
+        <button type="submit">Add</button>
+      </form>
+
+      <div class="tasks"></div>
+    </div>
+
+    <div class="list-column" id="done-column">
+      <h2>Done</h2>
+      <button id="add-done-btn">Add Task</button>
+      <div class="tasks"></div>
+    </div>
+
+  </div>
+</main>
 
   <footer>
     <p>Maria Balafouti</p>
