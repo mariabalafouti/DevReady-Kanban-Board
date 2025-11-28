@@ -17,7 +17,7 @@ The app loads three lists (To Do, In Progress, Done) using the TaskBoard API and
 
 1. Download or clone the repository:
    ```bash
-   git clone https://github.com/mariabalafouti/DevReady-Kanban-Board.git
+   https://github.com/mariabalafouti/DevReady-Kanban-Board.git
 
 2. Open the project folder.
 
